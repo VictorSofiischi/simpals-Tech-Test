@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styled from 'styled-components'
 import PointSvg from '../../../public/pointSvg.svg'
 import LoadingPage from '../loadingPage';
+import Link from 'next/link';
 
 const MainDiv = styled.div`
 display: flex;
@@ -72,11 +73,13 @@ const NewsDetailPage = ({ params }: { params: { newsId: string } }) => {
 
     return (
         <MainDiv>
-            <Image
-                src={PointSvg}
-                alt='Point Logo'
-                width={width !== 0 ? (width * 20) / 100 : 100}
-            />
+            <Link href={"/"}>
+                <Image
+                    src={PointSvg}
+                    alt='Point Logo'
+                    width={width !== 0 ? (width * 20) / 100 : 100}
+                />
+            </Link>
             <MainBox>
                 <ContentTitle>{response.content.title.short}</ContentTitle>
                 <ContentDescriptionCut dangerouslySetInnerHTML={{ __html: response.content.description.long }} />

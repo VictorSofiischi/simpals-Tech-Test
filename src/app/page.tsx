@@ -90,7 +90,7 @@ export default function Home() {
       setResponseDataAccumulator(prev => [...prev, ...result.contents])
       if (!firstLoading) {
         if (mainBoxRef.current) {
-          mainBoxRef.current.scrollIntoView({ behavior: 'instant', block: 'end', inline: 'nearest' });
+          mainBoxRef.current.scrollTo({ top: globalPageHeight - 1000, behavior: 'smooth' });
         }
       } else {
         setFirstLoading(false);
