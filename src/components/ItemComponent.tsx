@@ -1,12 +1,14 @@
 'use client';
 import styled from "styled-components";
 import { useEffect, useState } from 'react'
+import Image from "next/image";
 
 type ItemProps = {
     title: string,
     description: string,
     time: number,
-    id: string
+    id: string,
+    thumbnail: string,
 }
 
 const FlexRowDiv = styled.a`
@@ -46,7 +48,7 @@ const ContentTime = styled.span`
     color: #c9c9c9;
 `
 
-const ItemComponent = ({ title, description, time, id }: ItemProps) => {
+const ItemComponent = ({ title, description, time, id, thumbnail }: ItemProps) => {
 
     const [parsedDescription, setParsedDescription] = useState<string>('')
     const [timeState, setTimeState] = useState<string>('')
@@ -85,10 +87,15 @@ const ItemComponent = ({ title, description, time, id }: ItemProps) => {
         getFirstParagraph()
         setTimeState(getHumanTime())
     }, [])
-
+    //https://i.simpalsmedia.com/point.md/news/370x194/
     return (
         <FlexRowDiv href={`/${id}`}>
-            <FakeImage />
+            <Image
+                src={"https://i.simpalsmedia.com/point.md/news/370x194/" + thumbnail}
+                alt="some"
+                width={370}
+                height={194}
+            />
             <TitleDescriptionTimeDiv>
                 <ContentTitle dangerouslySetInnerHTML={{ __html: title }} />
                 <ContentDescriptionCut dangerouslySetInnerHTML={{ __html: parsedDescription }} />

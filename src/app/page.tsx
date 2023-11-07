@@ -4,38 +4,10 @@ import Image from 'next/image';
 import { useQuery, gql } from '@apollo/client';
 import ItemComponent from '@/components/ItemComponent';
 import PointSvg from '../../public/pointSvg.svg'
-import styled from 'styled-components';
+import { AllPageContainer, ContentContainer, DayTitle, MainBox } from "../styles/mainStyles"
 import LoadingPage from './loadingPage';
 
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-`;
 
-const AllPageContainer = styled.main`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-background-color: #f5f5f5;
-`;
-
-const MainBox = styled.div`
-  background-color: white;
-  padding-top: 30px;
-  padding-left: 3%;
-  padding-right: 3%;
-  border-radius: 18px;
-  padding-bottom: 100px;
-`;
-
-const DayTitle = styled.h1`
-  color: black;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 20px;
-`;
 
 let width = 0;
 let globalPageHeight = typeof document !== "undefined" ? document.documentElement.scrollHeight : 0;
@@ -54,7 +26,8 @@ export default function Home() {
       },
       dates{
         updated
-      }
+      },
+      thumbnail
     }
   }
   `;
@@ -120,7 +93,7 @@ export default function Home() {
             }
             return 0;
           }).map(item => (
-            <ItemComponent title={item.title.short} description={item.description.cut} time={item.dates.updated} key={item.id} id={item.id} />
+            <ItemComponent title={item.title.short} description={item.description.cut} time={item.dates.updated} key={item.id} id={item.id} thumbnail={item.thumbnail} />
           ))}
         </ContentContainer>
       </MainBox>
