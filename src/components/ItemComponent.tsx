@@ -55,7 +55,7 @@ const ItemComponent = ({ title, description, time, id, thumbnail }: ItemProps) =
         <FlexRowDiv href={`/${id}`}>
             <Image
                 src={"https://i.simpalsmedia.com/point.md/news/370x194/" + thumbnail}
-                alt="some"
+                alt="PointMDImage"
                 width={370}
                 height={194}
             />
