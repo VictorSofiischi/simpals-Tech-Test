@@ -1,7 +1,7 @@
 'use client';
-import styled from "styled-components";
 import { useEffect, useState } from 'react'
 import Image from "next/image";
+import { ContentDescriptionCut, ContentTime, ContentTitle, FlexRowDiv, TitleDescriptionTimeDiv } from '../styles/itemComponentStyles'
 
 type ItemProps = {
     title: string,
@@ -10,43 +10,6 @@ type ItemProps = {
     id: string,
     thumbnail: string,
 }
-
-const FlexRowDiv = styled.a`
-    display: flex;
-    flex-direction: row;
-`;
-
-const TitleDescriptionTimeDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
-const ContentTitle = styled.p`
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 25px;
-    font-weight: bold;
-    font-size: 35px;
-    color: #000000;
-`;
-
-const ContentDescriptionCut = styled.span`
-    color: #000000;
-    margin-left: 25px;
-    font-size: 18px
-`;
-
-const FakeImage = styled.div`
-    background-color: #f3f3f3;
-    max-width: 20%;
-    width: 100%;
-    height: 190px;
-`;
-
-const ContentTime = styled.span`
-    margin-left: 25px;
-    color: #c9c9c9;
-`
 
 const ItemComponent = ({ title, description, time, id, thumbnail }: ItemProps) => {
 
