@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
 export const FlexRowDiv = styled.a`
-    display: flex;
-    flex-direction: row;
+display: flex;
+flex-direction: row;
+
+@media (max-width: 1200px) {
+  flex-direction: column;
+}
 `;
 
 export const TitleDescriptionTimeDiv = styled.div`
